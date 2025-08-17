@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Sail — Events</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">The Sail</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+      <nav class="site-nav" id="siteNav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Upcoming Events</h1>
+    <!-- upcoming events will be filled by JS when a Google Calendar API key is configured -->
+    <ul class="events-list" id="upcomingEvents">
+      <li>Loading upcoming events…</li>
+    </ul>
+
+    <p>Contact us to reserve a table for events or inquire about private bookings.</p>
+
+    <section class="calendar-section">
+      <h2>Event Calendar</h2>
+      <div class="calendar-wrap">
+        <iframe src="https://calendar.google.com/calendar/embed?src=960286c928cc783c318a1a0fedd0966b169deee8e58888833948307445080e8a%40group.calendar.google.com&ctz=Pacific%2FAuckland" style="border: 0" frameborder="0" scrolling="no" aria-label="Events calendar"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 The Sail</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
