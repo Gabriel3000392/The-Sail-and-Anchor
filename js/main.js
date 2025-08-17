@@ -75,3 +75,36 @@
     if(e.key === 'Escape') close();
   });
 })();
+
+// Fetch and display upcoming events from Google Calendar
+(function(){
+  const eventsList = document.getElementById("upcomingEvents");
+  if (!eventsList) return;
+
+  const calendarId = "960286c928cc783c318a1a0fedd0966b169deee8e58888833948307445080e8a@group.calendar.google.com";
+  const apiKey = "AIzaSyBH84EBWWWopc95RX94dTBJFZdXawh4MdE";
+  const maxResults = 5;
+
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(calendarId)}/events?key=${apiKey}&singleEvents=true&orderBy=startTime&timeMin=${new Date().toISOString()}&maxResults=${maxResults}`;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(data => {
+      eventsList.innerHTML = "";
+      if (!data.items || data.items.length === 0) {
+        eventsList.innerHTML = "<li>No upcoming events</li>";
+        return;
+      }
+
+      data.items.forEach(event => {
+        const li = document.createElement("li");
+        const start = new Date(event.start.dateTime || event.start.date).toLocaleString();
+        li.innerHTML = `<strong>${event.summary}</strong><br><small>${start}</small>`;
+        eventsList.appendChild(li);
+      });
+    })
+    .catch(err => {
+      console.error(err);
+      eventsList.innerHTML = "<li>Could not load events</li>";
+    });
+})();
