@@ -109,6 +109,32 @@ body {
 .hero h1 { margin: 0; font-size: 2.25rem; }
 .hero p { color: rgba(255,255,255,0.95); }
 
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.two-column h2 {
+  margin-top: 0;
+}
+.intro h2{
+  color: black;
+}
+
+.intro p{
+  color: black;
+}
+
+/* Responsive stack on small screens */
+@media (max-width: 768px) {
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* Buttons */
 .btn {
   display: inline-block;
