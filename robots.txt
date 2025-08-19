@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.thesailandanchor.co.nz/sitemap.xml
