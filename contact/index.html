@@ -60,32 +60,77 @@
   <main class="container">
     <h1>Contact Us</h1>
     <p><strong>Phone:</strong> 03 688 8177</p>
+  <p><strong>Email:</strong> <a href="mailto:thesail@xtra.co.nz">thesail@xtra.co.nz</a></p>
+  <p><strong>Address:</strong> 51 Sophia Street, Timaru Central</p>
 
-    <section class="contact-info">
+    <!-- Contact form -->
+    <section class="contact-form">
+      <h2>Send us a message</h2>
 
-      <h2>Visit</h2>
-      <p>51 Sophia Street, Timaru Central</p>
+      <form id="contactForm">
+        <label>
+          Your name
+          <input type="text" name="from_name" required minlength="2" autocomplete="name">
+        </label>
 
-      <h3>Opening Hours</h3>
-      <ul>
-        <li>Monday: Closed</li>
-        <li>Tuesday: Closed</li>
-        <li>Wednesday: 4–10:30 pm</li>
-        <li>Thursday: 4–10:30 pm</li>
-        <li>Friday: 4–10:30 pm</li>
-        <li>Saturday: 4:30 pm–3 am</li>
-        <li>Sunday: Closed</li>
-      </ul>
+        <label>
+          Your email
+          <input type="email" name="reply_to" required autocomplete="email" inputmode="email">
+        </label>
+
+        <label>
+          Message
+          <textarea name="message" rows="6" required></textarea>
+        </label>
+
+        <!-- Extra metadata sent with the email -->
+        <input type="hidden" name="page_url" value="">
+
+        <!-- Honeypot, leave blank -->
+        <div class="hp">
+          <label>Phone
+            <input type="text" name="phone" tabindex="-1" autocomplete="off">
+          </label>
+        </div>
+
+        <button type="submit" id="sendBtn">Send</button>
+        <p id="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    
+    <!-- Map -->
+    <section class="map-section">
+      <h2>Find us</h2>
+      <div class="map-wrap">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d45613.19919579727!2d171.251188!3d-44.395715!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6d2cc1878324d345%3A0x9652d2dcd5e903f3!2sThe%20Sail%20%26%20Anchor%20Bar%20%26%20Cafe!5e0!3m2!1sen!2snz!4v1755318052785!5m2!1sen!2snz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
       <p>&copy; 2025 The Sail & Anchor Bar & Café, all rights reserved.</p>
-      <p><a href="/contact/">Contact</a> · <a href="/about/">About</a></p>
+      <p>51 Sophia Street, Timaru Central · Phone: 03 688 8177</p>
+      <p>
+        <a href="/contact/">Contact</a> · <a href="/about/">About</a>
+        ·
+        <span class="social-links">
+          <a href="https://www.facebook.com/thesailtimaru" rel="noopener" target="_blank" aria-label="Facebook">
+            <img class="social-icon" src="/img/facebook.png" alt="Facebook logo">
+            <span class="sr-only">Facebook</span>
+          </a>
+          <a href="https://www.instagram.com/the_sail_and_anchor_timaru/" rel="noopener" target="_blank" aria-label="Instagram">
+            <img class="social-icon" src="/img/instagram.png" alt="Instagram logo">
+            <span class="sr-only">Instagram</span>
+          </a>
+        </span>
+      </p>
     </div>
   </footer>
 
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="/js/main.js" defer></script>
+  <script src="/js/contacts.js" defer></script>
 </body>
 </html>
